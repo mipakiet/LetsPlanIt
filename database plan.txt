@@ -1,0 +1,37 @@
+
+Table User{
+  id int 
+
+}
+
+Table Plan{
+  id int
+  user_id int
+  money Money
+}
+
+Table transation{
+  id int
+  plan_id int
+  type enum
+  moeny Money
+  date datatime
+}
+
+Table constant_transation{
+  id int
+  plan_id int
+  type enum
+  moeny Money
+  do_type enum
+  start_date date
+  end_date date
+  week_dates List(weekday)
+  mounth_dates List(mounth )
+}
+
+Ref: "Plan"."user_id" - "User"."id"
+
+Ref: "transation"."plan_id" < "Plan"."id"
+
+Ref: "constant_transation"."plan_id" < "Plan"."id"
